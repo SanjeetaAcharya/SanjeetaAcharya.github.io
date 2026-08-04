@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanjeeta Acharya — Frontend & Full-Stack Engineer</title>
+  <title>Sanjeeta Acharya: Full-Stack Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -267,6 +267,51 @@
     }
     .skill-tag:hover { background: rgba(200,240,101,0.18); color: var(--accent); }
 
+    /* EXPERIENCE */
+    #experience { padding-top: 100px; }
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+    }
+    .exp-header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+      gap: 12px; margin-bottom: 6px;
+    }
+    .exp-role { font-family: var(--serif); font-size: 1.5rem; }
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .exp-org { color: var(--muted); font-size: 0.92rem; margin-bottom: 20px; }
+    .exp-bullets { list-style: none; margin-bottom: 20px; }
+    .exp-bullets li {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .exp-bullets li::before {
+      content: '›';
+      position: absolute; left: 0;
+      color: var(--accent2);
+      font-weight: 600;
+    }
+
     /* PROJECTS */
     .projects-grid {
       display: grid;
@@ -388,6 +433,31 @@
     }
     .timeline-title { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 4px; }
     .timeline-sub { color: var(--muted); font-size: 0.9rem; }
+    .timeline-detail { color: var(--muted); font-size: 0.82rem; margin-top: 4px; font-family: var(--mono); }
+
+    /* ACTIVITIES */
+    #activities { padding-top: 0; }
+    .activities-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .activity-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      display: flex; align-items: center; gap: 14px;
+      transition: border-color 0.25s, transform 0.25s var(--ease);
+    }
+    .activity-item:hover { border-color: var(--accent2); transform: translateY(-3px); }
+    .activity-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+    .activity-name { font-size: 0.92rem; color: var(--text); }
+    .activity-year { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
 
     /* CONTACT */
     #contact { padding-bottom: 120px; }
@@ -487,6 +557,7 @@
       #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { padding: 24px; }
+      .exp-header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -498,6 +569,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -508,10 +580,11 @@
   <section id="hero">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-<p class="hero-tag"> Full-Stack Developer · AI Enthusiast · Kathmandu, Nepal</p>    <h1 class="hero-name">Sanjeeta<br /><em>Acharya</em></h1>
-   <p class="hero-subtitle">
-  Full-stack developer specializing in React, Node.js, and microservice-based architectures, with experience building scalable applications, integrating AI systems, and deploying production-ready solutions using modern cloud platforms.
-</p>
+    <p class="hero-tag">Software Development Intern · Full-Stack Developer · Kathmandu, Nepal</p>
+    <h1 class="hero-name">Sanjeeta<br /><em>Acharya</em></h1>
+    <p class="hero-subtitle">
+      Full-stack developer specializing in React, Next.js, and Node.js, currently building production features for a farmer-trader-admin platform as a Software Development Intern. Experienced with real-time systems, REST APIs, AI integrations, and deploying applications on modern cloud platforms.
+    </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="#contact" class="btn btn-ghost">Get in Touch</a>
@@ -526,30 +599,30 @@
     <div class="about-grid">
       <div class="about-text reveal">
         <p>
-  I'm a <strong>Computer Engineering student</strong> at Kathmandu Engineering College with hands-on experience in building full-stack applications and scalable systems.
-</p>
-<p>
-  Experience includes developing <strong>microservice-based architectures</strong>, integrating <strong>machine learning and AI systems</strong>, and implementing secure <strong>authentication and role-based access control</strong>.
-</p>
-<p>
-  Skilled in working across the full development lifecycle — from designing responsive user interfaces to building backend APIs and deploying applications on cloud platforms.
-</p>
-<p>
-  Actively seeking opportunities to contribute to impactful products while continuously improving engineering and problem-solving skills.
-</p>
+          I'm a <strong>Computer Engineering student</strong> at Kathmandu Engineering College, currently working as a <strong>Software Development Intern</strong> at Nexgen Data and Tech Consulting, where I build full-stack features for a production platform connecting farmers, traders, and administrators.
+        </p>
+        <p>
+          Experience includes developing <strong>microservice-based architectures</strong>, integrating <strong>machine learning and AI systems</strong>, building <strong>real-time features with Socket.io</strong>, and implementing secure <strong>authentication and role-based access control</strong>.
+        </p>
+        <p>
+          Skilled in working across the full development lifecycle — from designing responsive user interfaces to building backend APIs and deploying applications on cloud platforms like Vercel and Render.
+        </p>
+        <p>
+          Actively seeking opportunities to contribute to impactful products while continuously improving engineering and problem-solving skills.
+        </p>
       </div>
       <div class="about-stats reveal">
         <div class="stat-card">
-          <div class="stat-num">4+</div>
+          <div class="stat-num">5+</div>
           <div class="stat-label">Projects Built</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">5+</div>
+          <div class="stat-num">4+</div>
           <div class="stat-label">Languages</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Frameworks</div>
+          <div class="stat-num">2026</div>
+          <div class="stat-label">SDE Intern Since</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">2022</div>
@@ -563,228 +636,282 @@
   <div id="skills">
     <p class="section-label reveal"> 02 &mdash; Skills</p>
     <h2 class="section-title reveal">Tech I work<br />with</h2>
-   <div class="skills-categories reveal">
+    <div class="skills-categories reveal">
 
-  <div class="skill-category">
-    <h4>Languages</h4>
-    <div class="skill-tags">
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">TypeScript</span>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">Dart</span>
-      <span class="skill-tag">C/C++</span>
-    </div>
-  </div>
-
-  <div class="skill-category">
-    <h4>Frontend</h4>
-    <div class="skill-tags">
-      <span class="skill-tag">React</span>
-      <span class="skill-tag">Flutter</span>
-      <span class="skill-tag">HTML/CSS</span>
-      <span class="skill-tag">Responsive Design</span>
-    </div>
-  </div>
-
-  <div class="skill-category">
-    <h4>Backend & APIs</h4>
-    <div class="skill-tags">
-      <span class="skill-tag">Node.js</span>
-      <span class="skill-tag">Express.js</span>
-      <span class="skill-tag">FastAPI</span>
-      <span class="skill-tag">REST APIs</span>
-      <span class="skill-tag">JWT Auth</span>
-    </div>
-  </div>
-
-  <div class="skill-category">
-    <h4>Database & Cloud</h4>
-    <div class="skill-tags">
-      <span class="skill-tag">MongoDB Atlas</span>
-      <span class="skill-tag">Vercel</span>
-      <span class="skill-tag">Render</span>
-    </div>
-  </div>
-
-  <div class="skill-category">
-    <h4>AI & Machine Learning</h4>
-    <div class="skill-tags">
-      <span class="skill-tag">Scikit-learn</span>
-      <span class="skill-tag">Pandas</span>
-      <span class="skill-tag">NumPy</span>
-      <span class="skill-tag">LLM Integration</span>
-      <span class="skill-tag">Prompt Engineering</span>
-    </div>
-  </div>
-
-  <div class="skill-category">
-    <h4>Tools</h4>
-    <div class="skill-tags">
-      <span class="skill-tag">Git</span>
-      <span class="skill-tag">GitHub</span>
-      <span class="skill-tag">Postman</span>
-      <span class="skill-tag">Figma</span>
-      <span class="skill-tag">VS Code</span>
-    </div>
-  </div>
-
-</div>
-  </div>
-
-  <div class="stat-card">
-  <div class="stat-num">5+</div>
-  <div class="stat-label">Projects Built</div>
-</div>
-
-<section id="projects">
-  <p class="section-label reveal"> 03 &mdash; Projects</p>
-  <h2 class="section-title reveal">Things I've<br />built</h2>
-
-  <!-- PERSONAL PROJECTS -->
-  <h3 style="margin-bottom:20px;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;">
-    Personal Projects
-  </h3>
-
-  <div class="projects-grid">
-
-    <!-- LoanPredict -->
-    <div class="project-card reveal">
-      <h3 class="project-title">LoanPredict</h3>
-      <p class="project-desc">
-        A full-stack loan risk prediction system using microservice architecture and machine learning models.
-      </p>
-      <ul class="project-bullets">
-        <li>Built 3-tier architecture with React frontend, Node.js API, and FastAPI ML service</li>
-        <li>Developed ML pipeline with preprocessing, SMOTE balancing, and multiple classifiers</li>
-        <li>Implemented JWT authentication and stored prediction history in MongoDB</li>
-        <li>Deployed across Vercel and Render with optimized API communication</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-badge">React</span>
-        <span class="stack-badge">Node.js</span>
-        <span class="stack-badge">FastAPI</span>
-        <span class="stack-badge">MongoDB</span>
-        <span class="stack-badge">ML</span>
+      <div class="skill-category">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C/C++</span>
+        </div>
       </div>
-      <a href="https://github.com/SanjeetaAcharya/Loan-Default-Prediction-" class="project-link" target="_blank">View Project →</a>
-    </div>
 
-    <!-- AI Career Assistant -->
-    <div class="project-card reveal">
-      <h3 class="project-title">AI Career Assistant</h3>
-      <p class="project-desc">
-        A full-stack AI platform for resume analysis, job matching, and interview preparation using LLM integration.
-      </p>
-      <ul class="project-bullets">
-        <li>Built structured prompt system to ensure consistent JSON responses from LLM</li>
-        <li>Implemented PDF parsing pipeline for resume extraction and analysis</li>
-        <li>Developed ATS scoring, skill-gap roadmap, and job matching features</li>
-        <li>Designed secure backend with authentication and persistent user data</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-badge">React</span>
-        <span class="stack-badge">Node.js</span>
-        <span class="stack-badge">MongoDB</span>
-        <span class="stack-badge">Gemini API</span>
+      <div class="skill-category">
+        <h4>Frontend</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">Responsive Design</span>
+        </div>
       </div>
-      <a href="https://github.com/SanjeetaAcharya/ai_career_assistant" class="project-link" target="_blank">View Project →</a>
-    </div>
 
-    <!-- Homestay -->
-    <div class="project-card reveal">
-      <h3 class="project-title">Homestay Booking Platform</h3>
-      <p class="project-desc">
-        A responsive frontend application for discovering and booking homestays with modern UI/UX design.
-      </p>
-      <ul class="project-bullets">
-        <li>Developing scalable frontend using TypeScript</li>
-        <li>Designed intuitive booking and browsing experience</li>
-        <li>Focused on performance optimization and user engagement</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-badge">TypeScript</span>
-        <span class="stack-badge">Frontend</span>
-        <span class="stack-badge">UI/UX</span>
+      <div class="skill-category">
+        <h4>Backend & APIs</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Socket.io</span>
+          <span class="skill-tag">JWT Auth</span>
+        </div>
       </div>
-      <a href="https://github.com/SanjeetaAcharya/Homestay-Booking" class="project-link" target="_blank">View Project →</a>
-    </div>
 
+      <div class="skill-category">
+        <h4>Database & Cloud</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB Atlas</span>
+          <span class="skill-tag">Vercel</span>
+          <span class="skill-tag">Render</span>
+          <span class="skill-tag">Cloudinary</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h4>AI & Machine Learning</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">LLM Integration</span>
+          <span class="skill-tag">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h4>Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- GROUP PROJECTS -->
-  <h3 style="margin:60px 0 20px;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;">
-    Group Projects
-  </h3>
-
-  <div class="projects-grid">
-
-    <!-- Mamata -->
-    <div class="project-card reveal">
-      <h3 class="project-title">Mamata</h3>
-      <p class="project-desc">
-        A maternal healthcare mobile application focused on accessibility and user-friendly design.
-      </p>
-      <ul class="project-bullets">
-        <li>Developed nutrition and exercise guide modules</li>
-        <li>Implemented GPS-based hospital recommendation</li>
-        <li>Handled frontend development and accessibility improvements</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-badge">Flutter</span>
-        <span class="stack-badge">Geolocator</span>
-        <span class="stack-badge">Mobile</span>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label reveal"> 03 &mdash; Experience</p>
+    <h2 class="section-title reveal">Where I've<br />worked</h2>
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <h3 class="exp-role">Software Development Intern</h3>
+        <span class="exp-period">June 2026 — Present</span>
       </div>
-      <a href="https://github.com/MamataTeam/mamata_where_motherhood_meets_technology" class="project-link" target="_blank">View Project →</a>
+      <p class="exp-org">Nexgen Data and Tech Consulting, Kathmandu</p>
+      <ul class="exp-bullets">
+        <li>Developed full-stack features for a production web platform connecting farmers, traders, and administrators, using React, Node.js, Express.js, and MongoDB.</li>
+        <li>Implemented real-time functionality with Socket.io and integrated third-party services including Cloudinary.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label reveal"> 04 &mdash; Projects</p>
+    <h2 class="section-title reveal">Things I've<br />built</h2>
+
+    <!-- PERSONAL PROJECTS -->
+    <h3 style="margin-bottom:20px;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;">
+      Personal Projects
+    </h3>
+
+    <div class="projects-grid">
+
+      <!-- Homestay Booking Platform -->
+      <div class="project-card reveal">
+        <h3 class="project-title">Homestay Booking Platform</h3>
+        <p class="project-desc">
+          A two-sided homestay booking marketplace enabling hosts to list properties and guests to search, book, and message hosts.
+        </p>
+        <ul class="project-bullets">
+          <li>Implemented JWT-based auth with role-based access for guests, hosts, and admins</li>
+          <li>Built a booking system with date-conflict validation to prevent double bookings</li>
+          <li>Integrated real-time guest-host messaging with Socket.io</li>
+          <li>Added Cloudinary-based image uploads for property listings</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-badge">React</span>
+          <span class="stack-badge">Next.js</span>
+          <span class="stack-badge">TypeScript</span>
+          <span class="stack-badge">Node.js</span>
+          <span class="stack-badge">Socket.io</span>
+          <span class="stack-badge">Cloudinary</span>
+        </div>
+        <a href="https://github.com/SanjeetaAcharya/Homestay-Booking" class="project-link" target="_blank">View Project →</a>
+      </div>
+
+      <!-- LoanPredict -->
+      <div class="project-card reveal">
+        <h3 class="project-title">Loan Default Prediction</h3>
+        <p class="project-desc">
+          A full-stack loan risk prediction system using microservice architecture and machine learning models.
+        </p>
+        <ul class="project-bullets">
+          <li>Designed a 3-tier architecture supporting real-time and batch predictions</li>
+          <li>Built an ML pipeline with preprocessing, feature alignment, and model evaluation</li>
+          <li>Developed secure auth and reliable inter-service communication</li>
+          <li>Managed deployment across Vercel and Render, resolving CORS and downtime issues</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-badge">React</span>
+          <span class="stack-badge">Node.js</span>
+          <span class="stack-badge">FastAPI</span>
+          <span class="stack-badge">MongoDB</span>
+          <span class="stack-badge">Scikit-learn</span>
+        </div>
+        <a href="https://github.com/SanjeetaAcharya/Loan-Default-Prediction-" class="project-link" target="_blank">View Project →</a>
+      </div>
+
+      <!-- AI Career Assistant -->
+      <div class="project-card reveal">
+        <h3 class="project-title">AI Career Assistant</h3>
+        <p class="project-desc">
+          A full-stack AI platform for resume analysis, job matching, and interview preparation using LLM integration.
+        </p>
+        <ul class="project-bullets">
+          <li>Built structured prompt system to ensure consistent JSON responses from LLM</li>
+          <li>Implemented PDF parsing pipeline for resume extraction and analysis</li>
+          <li>Developed ATS scoring, skill-gap roadmap, and job matching features</li>
+          <li>Designed secure backend with authentication and persistent user data</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-badge">React</span>
+          <span class="stack-badge">Node.js</span>
+          <span class="stack-badge">MongoDB</span>
+          <span class="stack-badge">Gemini API</span>
+        </div>
+        <a href="https://github.com/SanjeetaAcharya/ai_career_assistant" class="project-link" target="_blank">View Project →</a>
+      </div>
+
     </div>
 
-    <!-- Nepal Mentor -->
-    <div class="project-card reveal">
-      <h3 class="project-title">Nepal Mentor</h3>
-      <p class="project-desc">
-        A full-stack mentorship platform with role-based access and payment integration.
-      </p>
-      <ul class="project-bullets">
-        <li>Handled authentication system for mentor and mentee roles</li>
-        <li>Designed role-based dashboards and request workflows</li>
-        <li>Built mentor request and management system</li>
-        <li>Handled backend integration and MongoDB operations</li>
-        <li>Integrated eSewa payment gateway</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-badge">Flutter</span>
-        <span class="stack-badge">Node.js</span>
-        <span class="stack-badge">Express.js</span>
-        <span class="stack-badge">MongoDB</span>
+    <!-- GROUP PROJECTS -->
+    <h3 style="margin:60px 0 20px;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;">
+      Group Projects
+    </h3>
+
+    <div class="projects-grid">
+
+      <!-- Mamata -->
+      <div class="project-card reveal">
+        <h3 class="project-title">Mamata</h3>
+        <p class="project-desc">
+          A maternal healthcare mobile application focused on accessibility and user-friendly design.
+        </p>
+        <ul class="project-bullets">
+          <li>Developed nutrition and exercise guide modules</li>
+          <li>Implemented GPS-based hospital recommendation</li>
+          <li>Handled frontend development and accessibility improvements</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-badge">Flutter</span>
+          <span class="stack-badge">Geolocator</span>
+          <span class="stack-badge">Mobile</span>
+        </div>
+        <a href="https://github.com/MamataTeam/mamata_where_motherhood_meets_technology" class="project-link" target="_blank">View Project →</a>
       </div>
-      <a href="https://github.com/SanjeetaAcharya/Nepal-Mentor" class="project-link" target="_blank">View Project →</a>
+
+      <!-- Nepal Mentor -->
+      <div class="project-card reveal">
+        <h3 class="project-title">Nepal Mentor</h3>
+        <p class="project-desc">
+          A role-based mentorship platform enabling structured interaction between mentors and mentees, with payment integration.
+        </p>
+        <ul class="project-bullets">
+          <li>Handled authentication system for mentor and mentee roles</li>
+          <li>Designed role-based dashboards and request workflows</li>
+          <li>Built mentor request and management system</li>
+          <li>Handled backend integration and MongoDB operations</li>
+          <li>Integrated eSewa payment gateway</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-badge">Flutter</span>
+          <span class="stack-badge">Node.js</span>
+          <span class="stack-badge">Express.js</span>
+          <span class="stack-badge">MongoDB</span>
+        </div>
+        <a href="https://github.com/SanjeetaAcharya/Nepal-Mentor" class="project-link" target="_blank">View Project →</a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-  </div>
-</section>
   <!-- EDUCATION -->
   <section id="education" style="padding-top:0;">
-    <p class="section-label reveal"> 04 &mdash; Education</p>
+    <p class="section-label reveal"> 05 &mdash; Education</p>
     <h2 class="section-title reveal">Academic<br />background</h2>
     <div class="timeline">
       <div class="timeline-item reveal">
-        <div class="timeline-period">2022 &mdash; Present</div>
+        <div class="timeline-period">2022 &mdash; 2026</div>
         <div class="timeline-title">Bachelor in Computer Engineering</div>
-        <div class="timeline-sub">Kathmandu Engineering College, Nepal</div>
+        <div class="timeline-sub">Kathmandu Engineering College, Kalimati, Kathmandu</div>
+        <div class="timeline-detail">Average: 77.25%</div>
       </div>
       <div class="timeline-item reveal">
         <div class="timeline-period">2019 &mdash; 2021</div>
         <div class="timeline-title">Higher Secondary Education</div>
-        <div class="timeline-sub">KIST College, Nepal</div>
+        <div class="timeline-sub">Kathmandu Institute of Science and Technology Secondary School, Kamalpokhari, Kathmandu</div>
+        <div class="timeline-detail">GPA: 3.43</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-period">2015 &mdash; 2019</div>
+        <div class="timeline-title">Secondary Education</div>
+        <div class="timeline-sub">Boudha Secondary English School, Boudha, Kathmandu</div>
+        <div class="timeline-detail">GPA: 3.8</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES -->
+  <section id="activities">
+    <p class="section-label reveal"> 06 &mdash; Activities</p>
+    <h2 class="section-title reveal">Beyond the<br />classroom</h2>
+    <div class="activities-list reveal">
+      <div class="activity-item">
+        <div class="activity-dot"></div>
+        <div>
+          <div class="activity-name">24-Hour Hackathon on Sustainable Development</div>
+          <div class="activity-year">2025</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-dot"></div>
+        <div>
+          <div class="activity-name">AI/ML Bootcamp, Kathmandu Engineering College</div>
+          <div class="activity-year">2024</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-dot"></div>
+        <div>
+          <div class="activity-name">JavaScript Bootcamp, HPTech</div>
+          <div class="activity-year">2024</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <p class="section-label reveal"> 05 &mdash; Contact</p>
+    <p class="section-label reveal"> 07 &mdash; Contact</p>
     <h2 class="section-title reveal">Let's work<br /><em style="font-style:italic;color:var(--accent);font-family:var(--serif);">together</em></h2>
     <div class="contact-grid">
 
@@ -800,6 +927,10 @@
           <div class="contact-icon">&#9742;</div>
           +977 9849073194
         </a>
+        <div class="contact-item" style="cursor:default;">
+          <div class="contact-icon">&#128205;</div>
+          Boudha-6, Kathmandu
+        </div>
         <a href="https://github.com/SanjeetaAcharya" target="_blank" class="contact-item">
           <div class="contact-icon">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
@@ -811,25 +942,26 @@
           linkedin.com/in/sanjeetaacharya
         </a>
       </div>
-<form action="https://formspree.io/f/mwvraggp" method="POST">
-      <div class="contact-form reveal">
-        <div class="form-group">
-          <label class="form-label">Name</label>
-          <input class="form-input" type="text" name="name" placeholder="Your name" />
+
+      <form action="https://formspree.io/f/mwvraggp" method="POST">
+        <div class="contact-form reveal">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input class="form-input" type="text" name="name" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" name="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" name="message" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Send Message
+          </button>
         </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" name="email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" name="message" placeholder="What's on your mind?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-  Send Message
-</button>
-</form>
-      </div>
+      </form>
 
     </div>
   </section>
